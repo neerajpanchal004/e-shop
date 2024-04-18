@@ -9,6 +9,7 @@ const page = () => {
     const cartValue = useSelector((state)=>state.cart);
     const dispatch = useDispatch()
     function removeToCart(id){
+      alert("Really you want to remove it")
       dispatch(remove(id))
     }
     const auth = useSelector((state)=>state.auth)
