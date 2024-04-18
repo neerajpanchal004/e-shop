@@ -3,10 +3,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Header from '../components/Header';
 import { remove } from '../store/slices/CartSlice';
-import { useRouter } from 'next/navigation';
 
 const page = () => {
-  const router = useRouter()
     const cartValue = useSelector((state)=>state.cart);
     const dispatch = useDispatch()
     function removeToCart(id){
@@ -14,8 +12,9 @@ const page = () => {
       dispatch(remove(id))
     }
     const auth = useSelector((state)=>state.auth)
-    if(!auth){
-      router.push("/login")
+  
+    if(auth==false){
+      window.location.href = "/login"
     }
   return (
     <>
