@@ -6,6 +6,7 @@ import { remove } from '../store/slices/CartSlice';
 import { useRouter } from 'next/navigation';
 
 const page = () => {
+  const router = useRouter()
     const cartValue = useSelector((state)=>state.cart);
     const dispatch = useDispatch()
     function removeToCart(id){
@@ -13,7 +14,8 @@ const page = () => {
       dispatch(remove(id))
     }
     const auth = useSelector((state)=>state.auth)
-    if(auth){
+    if(!auth){
+      router.push("/login")
     }
   return (
     <>
