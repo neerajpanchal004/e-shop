@@ -12,10 +12,7 @@ const page = () => {
       dispatch(remove(id))
     }
     const auth = useSelector((state)=>state.auth)
-  
-    if(auth==false){
-      window.location.href = "/login"
-    }
+
   return (
     <>
     <Header/>
